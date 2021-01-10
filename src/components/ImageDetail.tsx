@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, Image, View } from 'react-native';
 
 interface Props {
     title: string;
@@ -7,7 +7,10 @@ interface Props {
 
 const ImageDetail = (props:Props) => {
     return (
-        <Text>{props.title}</Text>
+        <View>
+            <Image source={require('../../assets/beach.jpg')}/>
+            <Text>{props.title}</Text>
+        </View>
     );
 
 }
