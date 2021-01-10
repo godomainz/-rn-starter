@@ -1,14 +1,15 @@
 import React from 'react';
-import { Text, StyleSheet, Image, View } from 'react-native';
+import { Text, StyleSheet, Image, View, ImageSourcePropType } from 'react-native';
 
 interface Props {
     title: string;
+    imageSource: ImageSourcePropType;
 }
 
-const ImageDetail = (props:Props) => {
+const ImageDetail = (props: Props) => {
     return (
         <View>
-            <Image source={require('../../assets/beach.jpg')}/>
+            <Image source={props.imageSource}/>
             <Text>{props.title}</Text>
         </View>
     );
