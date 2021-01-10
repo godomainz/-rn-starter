@@ -1,10 +1,15 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
+import ImageDetail from '../components/ImageDetail';
 
 const ImageScreen = (props:any) => {
 
     return (
-        <Text>Hello from ImageScreen</Text>
+        <View>
+            <ImageDetail />
+            <ImageDetail />
+            <ImageDetail />
+        </View>
     );
 
 }
