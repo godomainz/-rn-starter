@@ -4,13 +4,15 @@ import { Text, StyleSheet, Image, View, ImageSourcePropType } from 'react-native
 interface Props {
     title: string;
     imageSource: ImageSourcePropType;
+    score: number;
 }
 
-const ImageDetail = (props: Props) => {
+const ImageDetail = ({ title, imageSource, score}: Props) => {
     return (
         <View>
-            <Image source={props.imageSource}/>
-            <Text>{props.title}</Text>
+            <Image source={imageSource}/>
+            <Text>{title}</Text>
+            <Text>Image Scrore - {score}</Text>
         </View>
     );
 
