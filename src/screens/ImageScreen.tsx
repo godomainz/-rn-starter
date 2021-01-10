@@ -6,9 +6,9 @@ const ImageScreen = (props:any) => {
 
     return (
         <View>
-            <ImageDetail />
-            <ImageDetail />
-            <ImageDetail />
+            <ImageDetail title="Forest"/>
+            <ImageDetail title="Beach"/>
+            <ImageDetail title="Mountain"/>
         </View>
     );
 
