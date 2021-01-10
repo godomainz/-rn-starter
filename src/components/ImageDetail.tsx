@@ -7,7 +7,7 @@ interface Props {
     score: number;
 }
 
-const ImageDetail = ({ title, imageSource, score}: Props) => {
+const ImageDetail = ({ title, imageSource, score }: Props) => {
     return (
         <View>
             <Image source={imageSource}/>
