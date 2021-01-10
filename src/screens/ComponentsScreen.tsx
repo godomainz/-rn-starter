@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
-const ComponentScreen = (props:any) => {
+const ComponentScreen = () => {
 
     return(
         <Text style={styles.textStyle}>This is component screen</Text>
