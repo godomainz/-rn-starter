@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, StyleSheet, View, Button } from 'react-native';
 
-const CounterScreen = (props:any) => {
-
+const CounterScreen = () => {
+    const [counter, setCounter] = useState<number>(0);
     return (
         <View>
-            <Text>Current Count:</Text>
+            <Button title="Increase" onPress={()=>setCounter(counter+1)}/>
+            <Button title="Decrease" onPress={()=>setCounter(counter-1)}/>
+            <Text>Current Count: {counter}</Text>
         </View>
     );
 
