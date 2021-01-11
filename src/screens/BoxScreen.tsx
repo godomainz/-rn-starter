@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     viewStyle:{
         borderWidth: 3,
         borderColor: 'black',
-        height: 200
+        height: 200,
+        alignItems: 'center'
     },
     textOneStyle:{
         borderWidth: 3,
@@ -27,12 +28,13 @@ const styles = StyleSheet.create({
     textTwoStyle:{
         borderWidth: 3,
         borderColor: 'red',
-        flex: 4
+        flex: 4,
     },
     textThreeStyle:{
         borderWidth: 3,
         borderColor: 'red',
-        flex: 2
+        flex: 2,
+        alignSelf: 'flex-end'
     }
 });
 
