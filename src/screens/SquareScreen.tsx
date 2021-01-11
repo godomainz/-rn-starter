@@ -4,7 +4,10 @@ import ColorCounter from '../components/ColorCounter';
 
 const COLOR_INCREMENT:number = 15;
 
-type Color = "red" | "green" | "blue";
+const RED = "RED";
+const GREEN = "GREEN";
+const BLUE = "BLUE";
+type Color = typeof RED | typeof GREEN | typeof BLUE;
 
 interface State {
   red: number;
@@ -13,20 +16,39 @@ interface State {
 }
 
 interface Action {
-    colorToChange: Color,
-    amount: number;
+    type: Color,
+    payload: number;
 }
+
+type ChangeRedAction = { type: typeof RED, payload: number };
+type ChangeGreenAction = { type: typeof GREEN, payload: number };
+type ChangeBlueAction = { type: typeof BLUE, payload: number };
+
+const changeRed = (payload:number):ChangeRedAction =>({
+    type: RED,
+    payload: payload
+});
+
+const changeGreen= (payload:number):ChangeGreenAction =>({
+    type: GREEN,
+    payload: payload
+});
+
+const changeBlue= (payload:number):ChangeBlueAction =>({
+    type: BLUE,
+    payload: payload
+});
 
 const initialState:State = { red: 0, green: 0, blue: 0 };
 
 const reducer = (state: State, action: Action):State => {
-    switch (action.colorToChange){
-        case "red":
-            return ( state.red + action.amount > 255 ) || (( state.red + action.amount < 0 )) ? state : { ...state, red: state.red + action.amount };
-        case "green":
-            return ( state.green + action.amount > 255 ) || (( state.green + action.amount < 0 )) ? state : { ...state, green: state.green + action.amount };
-        case "blue":
-            return ( state.blue + action.amount > 255 ) || (( state.blue + action.amount < 0 )) ? state : { ...state, blue: state.blue + action.amount };
+    switch (action.type){
+        case RED:
+            return ( state.red + action.payload > 255 ) || (( state.red + action.payload < 0 )) ? state : { ...state, red: state.red + action.payload };
+        case GREEN:
+            return ( state.green + action.payload > 255 ) || (( state.green + action.payload < 0 )) ? state : { ...state, green: state.green + action.payload };
+        case BLUE:
+            return ( state.blue + action.payload > 255 ) || (( state.blue + action.payload < 0 )) ? state : { ...state, blue: state.blue + action.payload };
         default: 
             return state;
     }
@@ -38,9 +60,9 @@ const SquareScreen = () => {
 
     return (
         <View>
-            <ColorCounter onIncrease={()=>runMyReducer({ colorToChange: "red", amount: COLOR_INCREMENT })} onDecrease={()=>runMyReducer({ colorToChange: "red", amount: -1 * COLOR_INCREMENT })} color="Red"/>
-            <ColorCounter onIncrease={()=>runMyReducer({ colorToChange: "green", amount: COLOR_INCREMENT })} onDecrease={()=>runMyReducer({ colorToChange: "green", amount: -1 * COLOR_INCREMENT })} color="Green"/>
-            <ColorCounter onIncrease={()=>runMyReducer({ colorToChange: "blue", amount: COLOR_INCREMENT })}  onDecrease={()=>runMyReducer({ colorToChange: "blue", amount: -1 * COLOR_INCREMENT })} color="Blue"/>
+            <ColorCounter onIncrease={()=>runMyReducer(changeRed(COLOR_INCREMENT))} onDecrease={()=>runMyReducer(changeRed( -1 * COLOR_INCREMENT ))} color="Red"/>
+            <ColorCounter onIncrease={()=>runMyReducer(changeGreen(COLOR_INCREMENT))} onDecrease={()=>runMyReducer(changeGreen( -1 * COLOR_INCREMENT ))} color="Green"/>
+            <ColorCounter onIncrease={()=>runMyReducer(changeBlue(COLOR_INCREMENT))}  onDecrease={()=>runMyReducer(changeBlue( -1 * COLOR_INCREMENT ))} color="Blue"/>
             <View style={{height:150, width: 150, backgroundColor: `rgb(${red}, ${green}, ${blue})`}} />
         </View>
     );
