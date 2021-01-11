@@ -10,10 +10,6 @@ const SquareScreen = () => {
     const [blue, setBlue] = useState<number>(0);
 
     const setColour = (color:string, change:number) => {
-        console.log(color);
-        console.log("red ",red);
-        console.log("green ",green);
-        console.log("blue ",blue);
         if(color === "Red" || color === "red" ){
             if( ( red + change ) > 255 || ( red + change ) < 0 ){
                 return;
