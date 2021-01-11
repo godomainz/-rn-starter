@@ -4,11 +4,23 @@ import { Text, StyleSheet, View } from 'react-native';
 const BoxScreen = (props:any) => {
 
     return (
-        <Text>Hello from BoxScreen</Text>
+        <View style={styles.viewStyle}>
+            <Text style={styles.textStyle}>Box Screen</Text>
+        </View>
     );
 
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    viewStyle:{
+        borderWidth: 1,
+        borderColor: 'black'
+    },
+    textStyle:{
+        borderWidth: 10,
+        borderColor: 'red',
+        margin: 20
+    }
+});
 
 export default BoxScreen;
